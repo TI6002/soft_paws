@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
-    // закрываем меню после выбора пункта (удобно на телефоне)
+    // закрываем меню после выбора пункта
     primaryNav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         primaryNav.classList.remove("is-open");

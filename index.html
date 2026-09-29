@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html lang="lv">
+
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8"> <!-- UTF-8 encoding -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Patversme bezpajumtes dzīvniekiem «Siltās Ķepas» — kaķu un suņu adopcija, brīvprātīgais darbs, palīdzība patversmei.">
+
 <title>Patversme «Siltās Ķepas» — māja tiem, kas gaida</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+
+
+<style>
+  .animal-card img,
+  .about-media img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px 12px 0 0;
+  }
+  .about-media img {
+    height: auto;
+    max-height: 500px;
+    border-radius: 12px;
+  }
+</style>
 </head>
+
 <body>
 
-<!-- ===================== HEADER / NAV ===================== -->
 <header class="site-header">
   <div class="wrap header-inner">
+
+    <!-- In-page link (iekšējā saite uz lapas daļu #top) -->
     <a href="#top" class="brand" id="top">
       <span class="brand-mark" aria-hidden="true">🐾</span>
       <span class="brand-name">Siltās Ķepas</span>
@@ -43,13 +65,18 @@
     <div class="wrap hero-inner">
       <div class="hero-text">
         <p class="hero-eyebrow">Patversme bezpajumtes dzīvniekiem</p>
+
+        <!-- Viens galvenais virsraksts (<h1>) -->
         <h1>Katrai ķepiņai&nbsp;&mdash; sava māja</h1>
+
+        <!-- Rindkopas (<p>) un teksta formēšana (<strong>, <mark>) -->
         <p class="hero-lede">
           Mēs atrodam kaķus un suņus uz ielas, pagrabos un pie ceļiem, ārstējam
           tos, mācām uzticēties cilvēkiem un <strong>meklējam katram savu saimnieku</strong>.
           Kopš 2016.&nbsp;gada vairāk nekā <mark>640 dzīvnieki</mark> ir atraduši
           ģimeni pateicoties mūsu brīvprātīgajiem.
         </p>
+
         <div class="hero-actions">
           <a href="#animals" class="btn btn-primary">Skatīt mājdzīvniekus</a>
           <a href="#volunteer" class="btn btn-ghost">Kļūt par brīvprātīgo</a>
@@ -91,18 +118,23 @@
   <section id="about" class="section about">
     <div class="wrap about-grid">
       <div class="about-media">
-        <img src="images/shelter-team.jpg" alt="Patversmes «Siltās Ķepas» brīvprātīgie patversmes teritorijā" width="900" height="650" loading="lazy">
+        <!-- Attēls no interneta/lokālās mapes ar pareizām proporcijām -->
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80" alt="Patversmes brīvprātīgie ar dzīvniekiem" width="900" height="650" loading="lazy">
         <p class="media-caption"><small>Foto: patversmes komanda, 2025.&nbsp;gada vasara.</small></p>
       </div>
 
       <div class="about-text">
+        <!-- Apakšvirsraksts 1. līmenis (<h2>) -->
         <h2>Par patversmi</h2>
+
         <p>
           «Siltās Ķepas» ir privāta patversme bezpajumtes dzīvniekiem,
           kas pastāv pilnībā no ziedojumiem un brīvprātīgo darba.
           Mēs neeitanizējam veselus dzīvniekus un turam tos pie sevis <em>tik ilgi,
+          <!-- Teksta formēšana (<em>) -->
           cik nepieciešams</em>, kamēr atrodas piemērota ģimene.
         </p>
+
         <p>
           Patversmes teritorijā ir siltas voljēras suņiem, atsevišķa māja
           kaķiem, karantīnas zona un neliels veterinārais kabinets.
@@ -110,12 +142,16 @@
           vakcināciju un, ja iespējams, sterilizāciju.
         </p>
 
+        <!-- Apakšvirsraksts 2. līmenis (<h3>) -->
         <h3>Ko mēs darām</h3>
+
+        <!-- Unordered list (<ul>) -->
         <ul class="check-list">
           <li>Atrodam un nododam dzīvniekus ģimenēs</li>
           <li>Sniedzam pirmo veterināro palīdzību</li>
           <li>
             Rīkojam izglītojošas tikšanās skolās
+            <!-- Nested list (saraksts sarakstā) -->
             <ul>
               <li>stāstām par dzīvnieku aprūpes noteikumiem;</li>
               <li>izskaidrojam, kāpēc nepieciešama sterilizācija;</li>
@@ -128,6 +164,7 @@
         <p>
           Vairāk par dzīvnieku tiesībām un atbildīgu attieksmi pret tiem var
           uzzināt organizācijas
+          <!-- Ārējā saite, kas atveras jaunā cilnē (target="_blank") -->
           <a href="https://www.worldanimalprotection.org" target="_blank" rel="noopener noreferrer">World Animal Protection</a>
           mājaslapā, ar kuru mēs salīdzinām savus turēšanas standartus.
         </p>
@@ -139,6 +176,7 @@
   <section id="animals" class="section animals">
     <div class="wrap">
       <h2>Mājdzīvnieki, kas gaida māju</h2>
+
       <p>
         Zemāk ir tikai daļa no mūsu audžiem. Pilns saraksts tiek atjaunots
         katru nedēļu, tāpēc, ja <mark>«jūsu» mājdzīvnieks</mark> vēl nav šeit&nbsp;&mdash;
@@ -154,7 +192,9 @@
 
       <div class="animal-grid" id="animalGrid">
 
+        <!-- Dzīvnieks 1 -->
         <article class="animal-card" data-species="dog">
+          <!-- Attēls kā hipersaite (Image hyperlink) + Image from web -->
           <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDCxYTAY4BvahVuTl-jMe_kp3rUP1lyVH-4lKbGvzP3A&s=10" target="_blank" rel="noopener noreferrer" class="animal-photo-link">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDCxYTAY4BvahVuTl-jMe_kp3rUP1lyVH-4lKbGvzP3A&s=10" alt="Suns Toms, aitu suņa metis, 2 gadi" loading="lazy">
           </a>
@@ -163,11 +203,13 @@
               <h3>Toms</h3>
               <span class="tag tag-dog">suns</span>
             </div>
+            <!-- Teksta formēšana (<abbr>) -->
             <p><strong>Vecums:</strong> 2&nbsp;gadi &nbsp;<abbr title="Kastrēts">kastr.</abbr></p>
             <p>Mierīgs, jau prot komandu «sēdi», lieliski saprotas ar bērniem un citiem suņiem.</p>
           </div>
         </article>
 
+        <!-- Dzīvnieks 2 -->
         <article class="animal-card" data-species="cat">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaRCEpPIsezf8jguOlC0RscKN8Elspjz3Vpm-KbUI-ig&s" alt="Kaķe Marta, trīskrāsaina, 1 gads" loading="lazy">
           <div class="animal-body">
@@ -180,6 +222,7 @@
           </div>
         </article>
 
+        <!-- Dzīvnieks 3 -->
         <article class="animal-card" data-species="dog">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeoKjeXVemG2E5JTZ8lCbMHzjPjf-m4NEZ3nV1q6yK5Q&s=10" alt="Suns Grafs, labradors, 4 gadi" loading="lazy">
           <div class="animal-body">
@@ -192,6 +235,7 @@
           </div>
         </article>
 
+        <!-- Dzīvnieks 4 -->
         <article class="animal-card" data-species="other">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT61pfSFxyf0jTzIqDqtnwGspJ0N7Iz2mglRt-HsjHXrg&s=10" alt="Viļņainais papagailis Kiksis" loading="lazy">
           <div class="animal-body">
@@ -204,6 +248,7 @@
           </div>
         </article>
 
+        <!-- Dzīvnieks 5 -->
         <article class="animal-card" data-species="cat">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS78SdlxW0wofFiZtir2115FykPY2_bnsmFw34ZxUNyAQ&s=10" alt="Kaķe Luna, melna, 3 gadi" loading="lazy">
           <div class="animal-body">
@@ -216,6 +261,7 @@
           </div>
         </article>
 
+        <!-- Dzīvnieks 6 -->
         <article class="animal-card" data-species="dog">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWCbr6ylhgMlxRVrFYN8mPOt8esCbhKTgMHnCqXv0Bw&s=10" alt="Kucēns Ričs, dvorņaga, 5 mēneši" loading="lazy">
           <div class="animal-body">
@@ -238,10 +284,12 @@
   </section>
 
   <!-- ===================== VIDEO ===================== -->
+  <!-- Iegultais YouTube video (<iframe>) -->
   <section class="section video-section">
     <div class="wrap">
       <h2>Viena diena patversmē</h2>
-      <p>Īss videoklips par to, kā dzīvnieki iepazīstas ar cilvēkiem &mdash; kā simbolisks stāsts par pirmo tikšanos, jo tas ir viens no pašiem pirmajiem jebkad augšupielādētajiem YouTube video.</p>
+      <p>Īss videoklips par to, kā dzīvnieki iepazīstas ar cilvēkiem &mdash; kā simbolisks stāsts par pirmo tikšanos.</p>
+
       <div class="video-frame">
         <iframe
           src="https://www.youtube.com/embed/jNQXAC9IVRw"
@@ -262,6 +310,7 @@
         <p>Procedūra nav sarežģīta, taču mums ir vairāki obligāti soļi&nbsp;&mdash;
           tas nepieciešams, lai dzīvnieks nonāktu drošās rokās.</p>
 
+        <!-- Ordered list (<ol>) -->
         <ol class="process-list">
           <li>
             <strong>Iepazīšanās.</strong> Jūs atbraucat uz patversmi vai uzrakstāt mums par izvēlēto dzīvnieku.
@@ -276,6 +325,7 @@
             </ul>
           </li>
           <li>
+            <!-- HTML character entities (&laquo; un &raquo;) -->
             <strong>Līgums.</strong> Parakstām dzīvnieka nodošanas līgumu &laquo;atbildīgā turēšanā&raquo;.
           </li>
           <li>
@@ -292,12 +342,14 @@
           par izskatu: mierīgs kaķis no sludinājuma dzīvoklī var izrādīties
           ļoti aktīvs, un otrādi.
         </p>
+        <!-- HTML character entity (&copy;) -->
         <p><small>&copy; Patversmes «Siltās Ķepas» kuratoru dienests</small></p>
       </aside>
     </div>
 
     <div class="wrap">
       <h3>Izmaksas un kas ietilpst dzīvnieka nodošanā</h3>
+
       <div class="table-wrap">
         <table class="fee-table">
           <caption>Aptuvenie nodošanas nosacījumi pa kategorijām (ziedojums tiek novirzīts patversmes vajadzībām)</caption>
@@ -346,6 +398,8 @@
   <section id="faq" class="section faq">
     <div class="wrap">
       <h2>Biežāk uzdotie jautājumi</h2>
+
+      <!-- Description list (<dl>) -->
       <dl class="faq-list">
         <dt>Vai var paņemt dzīvnieku uz pagaidu turēšanu, nevis uz visiem laikiem?</dt>
         <dd>Jā, mums ir pagaidu turēšanas programma uz 1&ndash;3 mēnešiem, tas īpaši palīdz vecākiem dzīvniekiem pierast pie mājas pirms pastāvīgas adopcijas.</dd>
@@ -422,6 +476,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Iesniegt pieteikumu</button>
+
         <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -433,6 +488,7 @@
       <div>
         <h2>Kontakti</h2>
         <p>Atbrauciet iepazīties ar mājdzīvniekiem klātienē&nbsp;&mdash; mēs strādājam katru dienu, izņemot pirmdienas.</p>
+
         <dl class="contact-info">
           <dt>Adrese</dt>
           <dd>Rīga, Lauku iela 14 (aiz autmazgātuves, tālāk pa grants ceļu)</dd>
@@ -441,6 +497,7 @@
           <dt>Apmeklējuma laiki</dt>
           <dd>otr&ndash;svētd., 10:00&ndash;18:00</dd>
         </dl>
+
         <p>
           Vairāk foto un stāstu par izmitinātajiem mājdzīvniekiem&nbsp;&mdash;
           mūsu grupā, bet pamata faktus par dzīvnieku paradumiem var
@@ -449,10 +506,7 @@
         </p>
       </div>
 
-      <div class="map-placeholder" aria-hidden="true">
-        <span>🗺️ šeit varētu būt karte ar braukšanas maršrutu</span>
-      </div>
-    </div>
+      
   </section>
 
 </main>
@@ -464,11 +518,14 @@
       <p class="footer-brand">🐾 Siltās Ķepas</p>
       <p><small>&copy; <span id="year">2026</span> Patversme «Siltās Ķepas». Visas tiesības aizsargātas.</small></p>
     </div>
+
+    <!-- Autora informācija -->
     <div class="footer-author">
       <p>Lapa sagatavota mācību nolūkos.</p>
       <p><strong>Autors:</strong> Taisija Iļjina</p>
       <p><strong>Studenta apliecības numurs:</strong> ti26004</p>
     </div>
+
     <div class="footer-back">
       <a href="#top">Atgriezties augšā</a>
     </div>

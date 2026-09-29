@@ -1,9 +1,12 @@
 /* =========================================================
-   ТЁПЛЫЕ ЛАПКИ — стили сайта приюта для животных
-   Палитра: тёплый пергамент, хвойный зелёный, мёдово-жёлтый,
-   приглушённый терракотовый (для тегов/акцентов).
-   Шрифты: Fredoka (заголовки) + Karla (текст)
+   TĒRPU LAPAS STILI
+   Šeit glabājas visi lapas vizuālie iestatījumi:
+   krāsas, izmēri, attālumi, pogas, kartītes un pielāgošanās
+   dažādiem ekrāna izmēriem.
    ========================================================= */
+
+
+/* ---------- Galvenie iestatījumi ---------- */
 
 :root {
   --bg: #F6F1E4;
@@ -27,9 +30,20 @@
   --shadow: 0 12px 30px -14px rgba(34, 50, 38, 0.35);
 }
 
-/* ---------- reset ---------- */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* ---------- Pamata CSS iestatījumi ---------- */
+
+/* box-sizing palīdz pareizi aprēķināt elementu izmērus */
+* {
+  box-sizing: border-box;
+}
+
+/* Vienmērīga pārvietošanās pa lapas sadaļām */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Galvenie lapas iestatījumi */
 body {
   margin: 0;
   background: var(--bg);
@@ -39,37 +53,88 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-img { max-width: 100%; display: block; }
-a { color: inherit; }
-h1, h2, h3 {
+
+/* Attēli nepārsniedz tiem paredzēto vietu */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Saišu pamatkrāsa */
+a {
+  color: inherit;
+}
+
+/* Kopējais virsrakstu izskats */
+h1,
+h2,
+h3 {
   font-family: var(--font-display);
   color: var(--pine-dark);
   line-height: 1.15;
   margin: 0 0 0.5em;
 }
-h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
-h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
-h3 { font-size: 1.2rem; }
-p { max-width: 68ch; }
+
+/* Dažādi virsrakstu izmēri */
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+/* Teksta rindu maksimālais platums */
+p {
+  max-width: 68ch;
+}
+
+/* Kopējais satura platums lapā */
 .wrap {
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 24px;
 }
-.section { padding: 72px 0; }
-.section h2 { margin-bottom: 0.7em; }
 
+/* Kopējie sadaļu attālumi */
+.section {
+  padding: 72px 0;
+}
+
+.section h2 {
+  margin-bottom: 0.7em;
+}
+
+
+/* ---------- Tastatūras fokuss ---------- */
+
+/* Parāda, kur atrodas fokuss, pārvietojoties ar tastatūru */
 :focus-visible {
   outline: 3px solid var(--marigold-dark);
   outline-offset: 3px;
 }
 
+
+/* Samazina animācijas, ja lietotājs tās ir atspējojis */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-/* ---------- buttons ---------- */
+
+/* ---------- Pogas ---------- */
+
+/* Kopējais pogu izskats */
 .btn {
   display: inline-block;
   padding: 13px 26px;
@@ -80,28 +145,42 @@ p { max-width: 68ch; }
   text-decoration: none;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
 }
+
+/* Galvenā poga */
 .btn-primary {
   background: var(--marigold);
   color: var(--pine-dark);
 }
+
+/* Galvenās pogas reakcija uz peli */
 .btn-primary:hover {
   background: var(--marigold-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
+
+/* Otrā tipa poga */
 .btn-ghost {
   background: transparent;
   border-color: var(--pine);
   color: var(--pine);
 }
+
+/* Otrās pogas reakcija uz peli */
 .btn-ghost:hover {
   background: var(--pine);
   color: var(--white);
 }
 
-/* ---------- header ---------- */
+
+/* ---------- Galvene ---------- */
+
+/* Galvene paliek augšā, ritinot lapu */
 .site-header {
   position: sticky;
   top: 0;
@@ -110,6 +189,8 @@ p { max-width: 68ch; }
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
+
+/* Galvenes elementu izkārtojums */
 .header-inner {
   display: flex;
   align-items: center;
@@ -117,6 +198,8 @@ p { max-width: 68ch; }
   padding-top: 14px;
   padding-bottom: 14px;
 }
+
+/* Logo izkārtojums */
 .brand {
   display: flex;
   align-items: center;
@@ -127,8 +210,16 @@ p { max-width: 68ch; }
   font-size: 1.2rem;
   color: var(--pine-dark);
 }
-.brand-mark { font-size: 1.4rem; }
 
+/* Ķepiņas izmērs logo */
+.brand-mark {
+  font-size: 1.4rem;
+}
+
+
+/* ---------- Navigācija ---------- */
+
+/* Navigācijas saišu izkārtojums */
 .primary-nav ul {
   list-style: none;
   display: flex;
@@ -136,6 +227,8 @@ p { max-width: 68ch; }
   margin: 0;
   padding: 0;
 }
+
+/* Navigācijas saišu stils */
 .primary-nav a {
   text-decoration: none;
   font-weight: 500;
@@ -143,18 +236,33 @@ p { max-width: 68ch; }
   position: relative;
   padding-bottom: 4px;
 }
-.primary-nav a:hover { color: var(--pine-dark); }
+
+/* Navigācijas saites krāsa, kad uz tās uzbrauc ar peli */
+.primary-nav a:hover {
+  color: var(--pine-dark);
+}
+
+/* Dekoratīvā līnija zem navigācijas saites */
 .primary-nav a::after {
   content: "";
   position: absolute;
-  left: 0; right: 100%;
+  left: 0;
+  right: 100%;
   bottom: 0;
   height: 2px;
   background: var(--marigold);
   transition: right 0.2s ease;
 }
-.primary-nav a:hover::after { right: 0; }
 
+/* Līnija parādās, kad uz saites uzbrauc ar peli */
+.primary-nav a:hover::after {
+  right: 0;
+}
+
+
+/* ---------- Mobilās izvēlnes poga ---------- */
+
+/* Poga pēc noklusējuma nav redzama uz lieliem ekrāniem */
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -164,6 +272,8 @@ p { max-width: 68ch; }
   cursor: pointer;
   padding: 6px;
 }
+
+/* Trīs līnijas mobilās izvēlnes pogā */
 .nav-toggle span {
   width: 24px;
   height: 2px;
@@ -171,34 +281,53 @@ p { max-width: 68ch; }
   display: block;
 }
 
-/* ---------- hero ---------- */
+
+/* ---------- Galvenā sākuma sadaļa ---------- */
+
+/* Hero sadaļas izmērs */
 .hero {
   padding: 64px 0 40px;
   overflow: hidden;
 }
+
+/* Hero sadaļas divu kolonnu izkārtojums */
 .hero-inner {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 40px;
   align-items: center;
 }
+
+/* Mazais teksts virs galvenā virsraksta */
 .hero-eyebrow {
   color: var(--brick);
   font-weight: 700;
   margin: 0 0 10px;
   font-size: 0.95rem;
 }
-.hero-lede { color: var(--ink-soft); }
+
+/* Hero apraksta krāsa */
+.hero-lede {
+  color: var(--ink-soft);
+}
+
+/* Hero pogu izkārtojums */
 .hero-actions {
   display: flex;
   gap: 14px;
   margin-top: 28px;
   flex-wrap: wrap;
 }
+
+
+/* ---------- Dekoratīvā hero daļa ---------- */
+
 .hero-figure {
   position: relative;
   height: 320px;
 }
+
+/* Dekoratīvais zaļais laukums */
 .hero-blob {
   position: absolute;
   inset: 0;
@@ -206,27 +335,57 @@ p { max-width: 68ch; }
   border-radius: 42% 58% 63% 37% / 45% 40% 60% 55%;
   opacity: 0.15;
 }
+
+/* Dekoratīvo emoji kopējais stils */
 .hero-emoji {
   position: absolute;
   font-size: 4.5rem;
-  filter: drop-shadow(0 10px 14px rgba(34,50,38,0.25));
+  filter: drop-shadow(0 10px 14px rgba(34, 50, 38, 0.25));
 }
-.hero-emoji--1 { top: 10%; left: 18%; transform: rotate(-8deg); }
-.hero-emoji--2 { bottom: 12%; right: 12%; transform: rotate(6deg); font-size: 3.6rem; }
-.hero-emoji--3 { top: 46%; left: 50%; transform: translate(-50%,-50%) rotate(14deg); font-size: 2.6rem; opacity: 0.6; }
 
-/* ---------- stats ---------- */
+/* Pirmā emoji pozīcija */
+.hero-emoji--1 {
+  top: 10%;
+  left: 18%;
+  transform: rotate(-8deg);
+}
+
+/* Otrā emoji pozīcija */
+.hero-emoji--2 {
+  bottom: 12%;
+  right: 12%;
+  transform: rotate(6deg);
+  font-size: 3.6rem;
+}
+
+/* Trešā emoji pozīcija */
+.hero-emoji--3 {
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(14deg);
+  font-size: 2.6rem;
+  opacity: 0.6;
+}
+
+
+/* ---------- Statistika ---------- */
+
+/* Statistikas sadaļas fons */
 .stats {
   background: var(--pine-dark);
   color: var(--white);
   padding: 40px 0;
 }
+
+/* Statistikas bloku izkārtojums */
 .stats-inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   text-align: center;
 }
+
+/* Lielais statistikas skaitlis */
 .stat-number {
   display: block;
   font-family: var(--font-display);
@@ -234,33 +393,56 @@ p { max-width: 68ch; }
   font-weight: 600;
   color: var(--marigold);
 }
+
+/* Teksts zem statistikas skaitļa */
 .stat-label {
-  color: rgba(255,255,255,0.78);
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.92rem;
 }
 
-/* ---------- about ---------- */
+
+/* ---------- Par patversmi ---------- */
+
+/* Teksta un attēla izkārtojums */
 .about-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 48px;
   align-items: start;
 }
+
+/* Komandas attēla izskats */
 .about-media img {
+  width: 100%;
+  height: auto;
   border-radius: var(--radius-m);
   box-shadow: var(--shadow);
 }
-.media-caption { color: var(--ink-soft); margin-top: 10px; }
+
+/* Teksts zem attēla */
+.media-caption {
+  color: var(--ink-soft);
+  margin-top: 10px;
+}
+
+
+/* ---------- Saraksts ---------- */
+
+/* Noņem parastos saraksta punktus */
 .check-list {
   list-style: none;
   padding: 0;
   margin: 18px 0;
 }
+
+/* Katra saraksta elementa novietojums */
 .check-list > li {
   position: relative;
   padding-left: 28px;
   margin-bottom: 12px;
 }
+
+/* Izveido ķeksīti saraksta sākumā */
 .check-list > li::before {
   content: "✓";
   position: absolute;
@@ -268,21 +450,42 @@ p { max-width: 68ch; }
   color: var(--pine);
   font-weight: 700;
 }
+
+/* Iekšējā saraksta izskats */
 .check-list ul {
   margin-top: 10px;
   padding-left: 20px;
   list-style: disc;
 }
-.about-text a { color: var(--pine); text-decoration-color: var(--marigold); }
 
-/* ---------- animals ---------- */
-.animals { background: var(--bg-alt); }
+/* Saites sadaļā par patversmi */
+.about-text a {
+  color: var(--pine);
+  text-decoration-color: var(--marigold);
+}
+
+
+/* =========================================================
+   DZĪVNIEKU SADAĻA
+   ========================================================= */
+
+/* Dzīvnieku sadaļas fons */
+.animals {
+  background: var(--bg-alt);
+}
+
+
+/* ---------- Filtri ---------- */
+
+/* Filtru pogu izkārtojums */
 .filter-bar {
   display: flex;
   gap: 10px;
   margin: 24px 0 32px;
   flex-wrap: wrap;
 }
+
+/* Filtra pogas pamata izskats */
 .filter-btn {
   border: 2px solid var(--line);
   background: var(--white);
@@ -294,36 +497,94 @@ p { max-width: 68ch; }
   color: var(--ink-soft);
   transition: all 0.15s ease;
 }
-.filter-btn:hover { border-color: var(--pine); }
+
+/* Filtra pogas reakcija uz peli */
+.filter-btn:hover {
+  border-color: var(--pine);
+}
+
+/* Aktīvais filtrs */
 .filter-btn.is-active {
   background: var(--pine);
   border-color: var(--pine);
   color: var(--white);
 }
 
+
+/* ---------- Dzīvnieku kartītes ---------- */
+
+/* Kartīšu izvietojums trīs kolonnās */
 .animal-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 26px;
 }
+
+/* Vienas kartītes kopējais izskats */
 .animal-card {
   background: var(--white);
   border-radius: var(--radius-m);
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
+  transition: transform 0.35s cubic-bezier(.2, .8, .2, 1);
 }
-.animal-card:hover { transform: translateY(-6px); }
-.animal-card img { height: 190px; width: 100%; object-fit: cover; }
-.animal-photo-link { display: block; }
-.animal-body { padding: 18px 20px 22px; }
+
+/* Kartīte nedaudz paceļas, kad uz tās uzbrauc ar peli */
+.animal-card:hover {
+  transform: translateY(-6px);
+}
+
+
+/* ---------- DZĪVNIEKU ATTĒLI ---------- */
+
+/*
+  Agrāk šeit bija object-fit: cover.
+  Tas palielināja attēlu līdz kartītes izmēram,
+  bet nogrieza tā malas.
+
+  contain parāda visu fotogrāfiju,
+  tāpēc dzīvnieks vairs netiek nogriezts.
+*/
+.animal-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  object-position: center;
+  background: var(--bg-alt);
+  padding: 8px;
+}
+
+/* Pirmajam attēlam ir saite, tāpēc noņemam liekus izmēru ierobežojumus */
+.animal-photo-link {
+  display: block;
+  width: 100%;
+}
+
+
+/* ---------- Kartītes teksts ---------- */
+
+/* Teksta daļas iekšējie attālumi */
+.animal-body {
+  padding: 18px 20px 22px;
+}
+
+/* Vārda un dzīvnieka tipa izkārtojums */
 .animal-title-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 4px;
 }
-.animal-title-row h3 { margin: 0; }
+
+/* Kartītes virsrakstam nav lieka apakšējā atstarpe */
+.animal-title-row h3 {
+  margin: 0;
+}
+
+
+/* ---------- Dzīvnieku tagi ---------- */
+
+/* Kopējais taga izskats */
 .tag {
   font-size: 0.72rem;
   font-weight: 700;
@@ -331,16 +592,34 @@ p { max-width: 68ch; }
   border-radius: 999px;
   color: var(--white);
 }
-.tag-dog { background: var(--pine); }
-.tag-cat { background: var(--brick); }
-.tag-other { background: var(--marigold-dark); }
+
+/* Suņa tags */
+.tag-dog {
+  background: var(--pine);
+}
+
+/* Kaķa tags */
+.tag-cat {
+  background: var(--brick);
+}
+
+/* Cita dzīvnieka tags */
+.tag-other {
+  background: var(--marigold-dark);
+}
+
+
+/* Teksts, kas parādās, ja nav dzīvnieku */
 .animal-empty {
   text-align: center;
   color: var(--ink-soft);
   padding: 30px 0;
 }
 
-/* ---------- video ---------- */
+
+/* ---------- Video ---------- */
+
+/* Video saglabā 16:9 proporcijas */
 .video-frame {
   position: relative;
   padding-top: 56.25%;
@@ -349,6 +628,8 @@ p { max-width: 68ch; }
   box-shadow: var(--shadow);
   background: #000;
 }
+
+/* Video aizņem visu tam paredzēto vietu */
 .video-frame iframe {
   position: absolute;
   inset: 0;
@@ -357,7 +638,10 @@ p { max-width: 68ch; }
   border: 0;
 }
 
-/* ---------- process ---------- */
+
+/* ---------- Adopcijas process ---------- */
+
+/* Teksta un padoma bloka izkārtojums */
 .process-grid {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -365,25 +649,51 @@ p { max-width: 68ch; }
   align-items: start;
   margin-bottom: 48px;
 }
+
+/* Numurētā saraksta atkāpe */
 .process-list {
   padding-left: 22px;
 }
-.process-list > li { margin-bottom: 16px; }
+
+/* Attālums starp procesa soļiem */
+.process-list > li {
+  margin-bottom: 16px;
+}
+
+/* Mazāks saraksts procesa iekšpusē */
 .process-list ul {
   margin-top: 8px;
   padding-left: 20px;
   list-style: circle;
 }
+
+
+/* ---------- Padoma bloks ---------- */
+
 .tip-card {
   background: var(--pine);
   color: var(--white);
   padding: 28px;
   border-radius: var(--radius-m);
 }
-.tip-card h3 { color: var(--white); }
-.tip-card p:first-of-type { color: rgba(255,255,255,0.9); }
 
-.table-wrap { overflow-x: auto; }
+.tip-card h3 {
+  color: var(--white);
+}
+
+.tip-card p:first-of-type {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* ---------- Tabula ---------- */
+
+/* Ja tabula ir pārāk plata, to var ritināt */
+.table-wrap {
+  overflow-x: auto;
+}
+
+/* Tabulas kopējais izskats */
 .fee-table {
   width: 100%;
   border-collapse: collapse;
@@ -391,62 +701,103 @@ p { max-width: 68ch; }
   border-radius: var(--radius-s);
   overflow: hidden;
 }
+
+/* Tabulas apraksts */
 .fee-table caption {
   caption-side: top;
   text-align: left;
   color: var(--ink-soft);
   padding-bottom: 10px;
 }
-.fee-table th, .fee-table td {
+
+/* Tabulas šūnas */
+.fee-table th,
+.fee-table td {
   border: 1px solid var(--line);
   padding: 12px 14px;
   text-align: left;
 }
+
+/* Tabulas galvenes izskats */
 .fee-table thead th {
   background: var(--bg-alt);
   font-family: var(--font-display);
 }
 
-/* ---------- faq ---------- */
+
+/* ---------- Biežāk uzdotie jautājumi ---------- */
+
+/* Jautājuma virsraksts */
 .faq-list dt {
   font-family: var(--font-display);
   color: var(--pine-dark);
   margin-top: 22px;
   font-size: 1.05rem;
 }
-.faq-list dt:first-child { margin-top: 0; }
+
+/* Pirmajam jautājumam nav liekas augšējās atstarpes */
+.faq-list dt:first-child {
+  margin-top: 0;
+}
+
+/* Atbildes teksts */
 .faq-list dd {
   margin: 6px 0 0;
   color: var(--ink-soft);
 }
 
-/* ---------- volunteer / form ---------- */
-.volunteer { background: var(--bg-alt); }
+
+/* ---------- Brīvprātīgo sadaļa un forma ---------- */
+
+.volunteer {
+  background: var(--bg-alt);
+}
+
+/* Teksta un formas izkārtojums */
 .volunteer-grid {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
   gap: 48px;
   align-items: start;
 }
+
+/* Pašas formas izskats */
 .volunteer-form {
   background: var(--white);
   padding: 28px;
   border-radius: var(--radius-m);
   box-shadow: var(--shadow);
 }
-.form-row { margin-bottom: 18px; }
+
+/* Attālums starp formas laukiem */
+.form-row {
+  margin-bottom: 18px;
+}
+
+/* Divi formas lauki vienā rindā */
 .form-row--split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-.form-row label, .form-row legend {
+
+/* Formas lauku nosaukumi */
+.form-row label,
+.form-row legend {
   display: block;
   font-weight: 700;
   margin-bottom: 6px;
   font-size: 0.92rem;
 }
-input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+
+
+/* ---------- Ievades lauki ---------- */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
   width: 100%;
   padding: 11px 13px;
   border: 2px solid var(--line);
@@ -456,15 +807,25 @@ input[type="text"], input[type="email"], input[type="tel"], select, textarea {
   background: var(--bg);
   color: var(--ink);
 }
-input:focus, select:focus, textarea:focus {
+
+/* Lauka krāsa, kad lietotājs to izvēlas */
+input:focus,
+select:focus,
+textarea:focus {
   border-color: var(--pine);
   outline: none;
 }
+
+
+/* Radio pogu grupas iestatījumi */
 fieldset.form-row {
   border: none;
   padding: 0;
 }
-.radio-label, .check-label {
+
+/* Radio un checkbox izkārtojums */
+.radio-label,
+.check-label {
   font-weight: 400;
   display: inline-flex;
   align-items: center;
@@ -472,28 +833,60 @@ fieldset.form-row {
   margin-right: 16px;
   font-size: 0.95rem;
 }
-.form-row--checkbox .check-label { display: flex; }
+
+/* Checkbox aizņem visu pieejamo rindu */
+.form-row--checkbox .check-label {
+  display: flex;
+}
+
+
+/* Formas rezultāta teksta vieta */
 .form-feedback {
   margin-top: 14px;
   font-weight: 700;
   min-height: 1.2em;
 }
-.form-feedback.ok { color: var(--pine); }
-.form-feedback.error { color: var(--brick); }
 
-/* ---------- contacts ---------- */
+/* Veiksmīgs paziņojums */
+.form-feedback.ok {
+  color: var(--pine);
+}
+
+/* Kļūdas paziņojums */
+.form-feedback.error {
+  color: var(--brick);
+}
+
+
+/* ---------- Kontakti ---------- */
+
+/* Kontaktinformācijas un kartes izkārtojums */
 .contacts-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 40px;
   align-items: start;
 }
+
+/* Kontaktinformācijas virsraksti */
 .contact-info dt {
   font-weight: 700;
   margin-top: 14px;
 }
-.contact-info dt:first-child { margin-top: 0; }
-.contact-info dd { margin: 2px 0 0; color: var(--ink-soft); }
+
+/* Pirmajam kontaktam nav liekas atstarpes */
+.contact-info dt:first-child {
+  margin-top: 0;
+}
+
+/* Kontaktinformācijas teksts */
+.contact-info dd {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+}
+
+
+/* Vietturis kartes vietā */
 .map-placeholder {
   background: var(--bg-alt);
   border: 2px dashed var(--line);
@@ -507,12 +900,17 @@ fieldset.form-row {
   padding: 20px;
 }
 
-/* ---------- footer ---------- */
+
+/* ---------- Footer ---------- */
+
+/* Lapas apakšējā daļa */
 .site-footer {
   background: var(--pine-dark);
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
   padding: 40px 0;
 }
+
+/* Footer elementu izkārtojums */
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
@@ -520,26 +918,65 @@ fieldset.form-row {
   justify-content: space-between;
   align-items: flex-start;
 }
+
+/* Footer nosaukums */
 .footer-brand {
   font-family: var(--font-display);
   color: var(--white);
   font-size: 1.1rem;
   margin: 0 0 6px;
 }
-.footer-author p { margin: 2px 0; font-size: 0.92rem; }
-.footer-back a { text-decoration: underline; color: var(--marigold); }
 
-/* ---------- responsive ---------- */
-@media (max-width: 860px) {
-  .hero-inner, .about-grid, .process-grid, .volunteer-grid, .contacts-grid {
-    grid-template-columns: 1fr;
-  }
-  .hero-figure { height: 220px; order: -1; }
-  .animal-grid { grid-template-columns: repeat(2, 1fr); }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+/* Autora informācija */
+.footer-author p {
+  margin: 2px 0;
+  font-size: 0.92rem;
 }
 
+/* Saite uz lapas sākumu */
+.footer-back a {
+  text-decoration: underline;
+  color: var(--marigold);
+}
+
+
+/* =========================================================
+   PIELĀGOŠANA MAZĀKIEM EKRĀNIEM
+   ========================================================= */
+
+@media (max-width: 860px) {
+
+  /* Galvenās sadaļas pāriet vienā kolonnā */
+  .hero-inner,
+  .about-grid,
+  .process-grid,
+  .volunteer-grid,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Dekoratīvā hero daļa kļūst mazāka */
+  .hero-figure {
+    height: 220px;
+    order: -1;
+  }
+
+  /* Dzīvnieku kartītes pāriet uz divām kolonnām */
+  .animal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Statistika pāriet uz divām kolonnām */
+  .stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* Vēl mazākiem ekrāniem */
 @media (max-width: 640px) {
+
+  /* Mobilās navigācijas pozīcija */
   .primary-nav {
     position: absolute;
     top: 100%;
@@ -551,16 +988,62 @@ fieldset.form-row {
     overflow: hidden;
     transition: max-height 0.25s ease;
   }
-  .primary-nav.is-open { max-height: 320px; }
+
+  /* Atvērta mobilā izvēlne */
+  .primary-nav.is-open {
+    max-height: 320px;
+  }
+
+  /* Mobilās navigācijas saišu izkārtojums */
   .primary-nav ul {
     flex-direction: column;
     gap: 0;
     padding: 8px 24px 18px;
   }
-  .primary-nav li { border-top: 1px solid var(--line); }
-  .primary-nav a { display: block; padding: 12px 0; }
-  .nav-toggle { display: flex; }
-  .animal-grid { grid-template-columns: 1fr; }
-  .form-row--split { grid-template-columns: 1fr; }
-  .stats-inner { grid-template-columns: repeat(2, 1fr); }
+
+  /* Līnija starp mobilās izvēlnes saitēm */
+  .primary-nav li {
+    border-top: 1px solid var(--line);
+  }
+
+  /* Mobilās navigācijas saites */
+  .primary-nav a {
+    display: block;
+    padding: 12px 0;
+  }
+
+  /* Parāda izvēlnes pogu */
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Uz ļoti maza ekrāna viena kartīte vienā rindā */
+  .animal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Formas lauki pāriet viens zem otra */
+  .form-row--split {
+    grid-template-columns: 1fr;
+  }
+
+  /* Statistika paliek divās kolonnās */
+  .stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Mazākas bildes mobilajā versijā */
+  .animal-card img,
+  .about-media img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px 12px 0 0;
+  }
+  .about-media img {
+    height: auto;
+    max-height: 500px;
+    border-radius: 12px;
+  }
 }

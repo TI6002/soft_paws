@@ -1,12 +1,3 @@
-/* =========================================================
-   TĒRPU LAPAS STILI
-   Šeit glabājas visi lapas vizuālie iestatījumi:
-   krāsas, izmēri, attālumi, pogas, kartītes un pielāgošanās
-   dažādiem ekrāna izmēriem.
-   ========================================================= */
-
-
-/* ---------- Galvenie iestatījumi ---------- */
 
 :root {
   --bg: #F6F1E4;
@@ -30,20 +21,16 @@
   --shadow: 0 12px 30px -14px rgba(34, 50, 38, 0.35);
 }
 
-
-/* ---------- Pamata CSS iestatījumi ---------- */
-
 /* box-sizing palīdz pareizi aprēķināt elementu izmērus */
 * {
   box-sizing: border-box;
 }
 
-/* Vienmērīga pārvietošanās pa lapas sadaļām */
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Galvenie lapas iestatījumi */
 body {
   margin: 0;
   background: var(--bg);
@@ -54,7 +41,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Attēli nepārsniedz tiem paredzēto vietu */
 img {
   max-width: 100%;
   display: block;
@@ -65,7 +51,6 @@ a {
   color: inherit;
 }
 
-/* Kopējais virsrakstu izskats */
 h1,
 h2,
 h3 {
@@ -75,7 +60,7 @@ h3 {
   margin: 0 0 0.5em;
 }
 
-/* Dažādi virsrakstu izmēri */
+
 h1 {
   font-size: clamp(2.2rem, 5vw, 3.4rem);
 }
@@ -88,12 +73,12 @@ h3 {
   font-size: 1.2rem;
 }
 
-/* Teksta rindu maksimālais platums */
+
 p {
   max-width: 68ch;
 }
 
-/* Kopējais satura platums lapā */
+
 .wrap {
   max-width: 1120px;
   margin: 0 auto;
@@ -134,7 +119,6 @@ p {
 
 /* ---------- Pogas ---------- */
 
-/* Kopējais pogu izskats */
 .btn {
   display: inline-block;
   padding: 13px 26px;
@@ -151,27 +135,27 @@ p {
     background 0.15s ease;
 }
 
-/* Galvenā poga */
+
 .btn-primary {
   background: var(--marigold);
   color: var(--pine-dark);
 }
 
-/* Galvenās pogas reakcija uz peli */
+
 .btn-primary:hover {
   background: var(--marigold-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
 
-/* Otrā tipa poga */
+
 .btn-ghost {
   background: transparent;
   border-color: var(--pine);
   color: var(--pine);
 }
 
-/* Otrās pogas reakcija uz peli */
+
 .btn-ghost:hover {
   background: var(--pine);
   color: var(--white);
@@ -180,7 +164,6 @@ p {
 
 /* ---------- Galvene ---------- */
 
-/* Galvene paliek augšā, ritinot lapu */
 .site-header {
   position: sticky;
   top: 0;
@@ -190,7 +173,7 @@ p {
   border-bottom: 1px solid var(--line);
 }
 
-/* Galvenes elementu izkārtojums */
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -199,7 +182,7 @@ p {
   padding-bottom: 14px;
 }
 
-/* Logo izkārtojums */
+/* Logo  */
 .brand {
   display: flex;
   align-items: center;
@@ -211,7 +194,7 @@ p {
   color: var(--pine-dark);
 }
 
-/* Ķepiņas izmērs logo */
+
 .brand-mark {
   font-size: 1.4rem;
 }
@@ -284,7 +267,6 @@ p {
 
 /* ---------- Galvenā sākuma sadaļa ---------- */
 
-/* Hero sadaļas izmērs */
 .hero {
   padding: 64px 0 40px;
   overflow: hidden;
@@ -370,7 +352,6 @@ p {
 
 /* ---------- Statistika ---------- */
 
-/* Statistikas sadaļas fons */
 .stats {
   background: var(--pine-dark);
   color: var(--white);
@@ -394,7 +375,6 @@ p {
   color: var(--marigold);
 }
 
-/* Teksts zem statistikas skaitļa */
 .stat-label {
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.92rem;
@@ -403,7 +383,7 @@ p {
 
 /* ---------- Par patversmi ---------- */
 
-/* Teksta un attēla izkārtojums */
+
 .about-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -411,7 +391,7 @@ p {
   align-items: start;
 }
 
-/* Komandas attēla izskats */
+
 .about-media img {
   width: 100%;
   height: auto;
@@ -419,7 +399,7 @@ p {
   box-shadow: var(--shadow);
 }
 
-/* Teksts zem attēla */
+
 .media-caption {
   color: var(--ink-soft);
   margin-top: 10px;
@@ -545,14 +525,19 @@ p {
   contain parāda visu fotogrāfiju,
   tāpēc dzīvnieks vairs netiek nogriezts.
 */
-.animal-card img {
-  width: 100%;
-  height: 240px;
-  object-fit: contain;
-  object-position: center;
-  background: var(--bg-alt);
-  padding: 8px;
-}
+.animal-card img,
+    .about-media img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 12px 12px 0 0;
+    }
+    .about-media img {
+      height: auto;
+      max-height: 500px;
+      border-radius: 12px;
+    }
 
 /* Pirmajam attēlam ir saite, tāpēc noņemam liekus izmēru ierobežojumus */
 .animal-photo-link {
@@ -615,6 +600,7 @@ p {
   color: var(--ink-soft);
   padding: 30px 0;
 }
+
 
 
 /* ---------- Video ---------- */
@@ -941,7 +927,7 @@ fieldset.form-row {
 
 
 /* =========================================================
-   PIELĀGOŠANA MAZĀKIEM EKRĀNIEM
+   MOBILE VER
    ========================================================= */
 
 @media (max-width: 860px) {

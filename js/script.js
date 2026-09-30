@@ -1,113 +1,220 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ---------- 1) мобильное меню ---------- */
-  var navToggle = document.getElementById("navToggle");
-  var primaryNav = document.getElementById("primaryNav");
+  // =====================================================
+  // 1. MOBILĀ IZVĒLNE
+  // =====================================================
 
-  if (navToggle && primaryNav) {
-    navToggle.addEventListener("click", function () {
-      var isOpen = primaryNav.classList.toggle("is-open");
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
+  // Atrodam izvēlnes pogu un pašu izvēlni
+  var button = document.getElementById("navToggle");
+  var menu = document.getElementById("primaryNav");
 
-    // закрываем меню после выбора пункта
-    primaryNav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        primaryNav.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
+  // Pārbaudām, vai poga un izvēlne pastāv
+  if (button && menu) {
 
-  /* ---------- 2) фильтр питомцев ---------- */
-  var filterButtons = document.querySelectorAll(".filter-btn");
-  var animalCards = document.querySelectorAll(".animal-card");
-  var emptyMessage = document.getElementById("animalEmpty");
+    // Pēc pogas nospiešanas atveram vai aizveram izvēlni
+    button.onclick = function () {
 
-  filterButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      filterButtons.forEach(function (b) { b.classList.remove("is-active"); });
-      btn.classList.add("is-active");
+      // Pievienojam vai noņemam klasi "is-open"
+      menu.classList.toggle("is-open");
 
-      var species = btn.getAttribute("data-filter");
-      var visibleCount = 0;
-
-      animalCards.forEach(function (card) {
-        var matches = species === "all" || card.getAttribute("data-species") === species;
-        card.style.display = matches ? "" : "none";
-        if (matches) visibleCount++;
-      });
-
-      if (emptyMessage) {
-        emptyMessage.hidden = visibleCount !== 0;
-      }
-    });
-  });
-
-  /* ---------- 3) счётчики статистики ---------- */
-  var statNumbers = document.querySelectorAll(".stat-number");
-
-  function animateCount(el) {
-    var target = parseInt(el.getAttribute("data-count"), 10) || 0;
-    var duration = 1200;
-    var start = null;
-
-    function step(timestamp) {
-      if (start === null) start = timestamp;
-      var progress = Math.min((timestamp - start) / duration, 1);
-      el.textContent = Math.floor(progress * target);
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
+      // Mainām aria-expanded vērtību
+      if (menu.classList.contains("is-open")) {
+        button.setAttribute("aria-expanded", "true");
       } else {
-        el.textContent = target;
+        button.setAttribute("aria-expanded", "false");
       }
-    }
-    window.requestAnimationFrame(step);
+    };
+
+    // Pēc saites izvēles aizveram izvēlni
+    menu.querySelectorAll("a").forEach(function (link) {
+
+      link.onclick = function () {
+        menu.classList.remove("is-open");
+        button.setAttribute("aria-expanded", "false");
+      };
+
+    });
   }
 
-  if ("IntersectionObserver" in window && statNumbers.length) {
-    var observer = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCount(entry.target);
-          obs.unobserve(entry.target);
+
+  // =====================================================
+  // 2. DZĪVNIEKU FILTRS
+  // =====================================================
+
+  // Atrodam filtra pogas, dzīvnieku kartītes
+  // un ziņojumu, ja dzīvnieki nav atrasti
+  var buttons = document.querySelectorAll(".filter-btn");
+  var cards = document.querySelectorAll(".animal-card");
+  var empty = document.getElementById("animalEmpty");
+
+  // Katrai filtra pogai pievienojam darbību
+  buttons.forEach(function (button) {
+
+    button.onclick = function () {
+
+      // Noņemam aktīvo klasi visām pogām
+      buttons.forEach(function (b) {
+        b.classList.remove("is-active");
+      });
+
+      // Pievienojam aktīvo klasi nospiestajai pogai
+      button.classList.add("is-active");
+
+      // Iegūstam izvēlēto filtru
+      // Piemēram: "cat", "dog" vai "all"
+      var filter = button.getAttribute("data-filter");
+
+      // Skaitām parādīto dzīvnieku skaitu
+      var count = 0;
+
+      // Pārbaudām katru dzīvnieku kartīti
+      cards.forEach(function (card) {
+
+        // Iegūstam dzīvnieka sugu
+        var species = card.getAttribute("data-species");
+
+        // Pārbaudām, vai dzīvnieks atbilst filtram
+        if (filter === "all" || species === filter) {
+
+          // Parādām kartīti
+          card.style.display = "";
+          count++;
+
+        } else {
+
+          // Paslēpjam kartīti
+          card.style.display = "none";
         }
       });
-    }, { threshold: 0.6 });
 
-    statNumbers.forEach(function (el) { observer.observe(el); });
-  } else {
-    // на всякий случай, если IntersectionObserver недоступен
-    statNumbers.forEach(animateCount);
+      // Ja dzīvnieku nav, parādām ziņojumu
+      if (empty) {
+        empty.hidden = count > 0;
+      }
+    };
+  });
+
+
+  // =====================================================
+  // 3. STATISTIKAS SKAITĪTĀJI
+  // =====================================================
+
+  // Atrodam visus statistikas skaitītājus
+  var numbers = document.querySelectorAll(".stat-number");
+
+  // Funkcija palielina skaitli no 0 līdz vajadzīgajam skaitlim
+  function countUp(element) {
+
+    // Iegūstam beigu skaitli no data-count
+    var target = parseInt(element.getAttribute("data-count"));
+
+    // Sākam skaitīšanu no nulles
+    var number = 0;
+
+    // Pakāpeniski palielinām skaitli
+    var timer = setInterval(function () {
+
+      number++;
+      element.textContent = number;
+
+      // Kad sasniegts vajadzīgais skaitlis, apturam skaitītāju
+      if (number >= target) {
+        clearInterval(timer);
+      }
+
+    }, 1200 / target);
   }
 
-  /* ---------- 4) форма волонтёра ---------- */
-  var form = document.getElementById("volunteerForm");
-  var feedback = document.getElementById("formFeedback");
 
+  // Palaižam skaitītājus, kad tie parādās ekrānā
+  if ("IntersectionObserver" in window) {
+
+    var observer = new IntersectionObserver(function (entries) {
+
+      entries.forEach(function (entry) {
+
+        // Pārbaudām, vai elements ir redzams ekrānā
+        if (entry.isIntersecting) {
+
+          // Palaižam skaitītāju
+          countUp(entry.target);
+
+          // Vairs neuzraugām šo skaitītāju
+          observer.unobserve(entry.target);
+        }
+      });
+
+    });
+
+    // Uzraugām katru skaitītāju
+    numbers.forEach(function (number) {
+      observer.observe(number);
+    });
+
+  } else {
+
+    // Ja IntersectionObserver nav pieejams,
+    // palaižam visus skaitītājus uzreiz
+    numbers.forEach(function (number) {
+      countUp(number);
+    });
+  }
+
+
+  // =====================================================
+  // 4. BRĪVPRĀTĪGĀ PIETEIKUMA FORMA
+  // =====================================================
+
+  // Atrodam formu un vietu, kur parādīt ziņojumu
+  var form = document.getElementById("volunteerForm");
+  var message = document.getElementById("formFeedback");
+
+  // Pārbaudām, vai forma pastāv
   if (form) {
-    form.addEventListener("submit", function (event) {
+
+    // Kad lietotājs nosūta formu
+    form.onsubmit = function (event) {
+
+      // Neļaujam lapai pārlādēties
       event.preventDefault();
 
+      // Pārbaudām obligātos laukus
       if (!form.checkValidity()) {
-        feedback.textContent = "Lūdzu, aizpildiet visus obligātos laukus (atzīmēti ar *).";
-        feedback.className = "form-feedback error";
+
+        message.textContent =
+          "Lūdzu, aizpildiet visus obligātos laukus (atzīmēti ar *).";
+
+        message.className = "form-feedback error";
+
         return;
       }
 
+      // Iegūstam lietotāja vārdu
       var name = document.getElementById("fullName").value.trim();
-      feedback.textContent = "Paldies, " + name + "! Pieteikums nosūtīts, kurators sazināsies ar jums divu darba dienu laikā.";
-      feedback.className = "form-feedback ok";
+
+      // Parādām ziņojumu par veiksmīgu pieteikumu
+      message.textContent =
+        "Paldies, " + name +
+        "! Pieteikums nosūtīts, kurators sazināsies ar jums divu darba dienu laikā.";
+
+      message.className = "form-feedback ok";
+
+      // Notīrām formas laukus
       form.reset();
-    });
+    };
   }
 
-  /* ---------- 5) текущий год в подвале ---------- */
-  var yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+
+  // =====================================================
+  // 5. PAŠREIZĒJAIS GADS KĀJENĒ
+  // =====================================================
+
+  // Atrodam elementu, kurā jāparāda gads
+  var year = document.getElementById("year");
+
+  // Ievietojam pašreizējo gadu
+  if (year) {
+    year.textContent = new Date().getFullYear();
   }
 
 });

@@ -2,32 +2,16 @@
 <html lang="lv">
 
 <head>
-<meta charset="UTF-8"> <!-- UTF-8 encoding -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Patversme bezpajumtes dzīvniekiem «Siltās Ķepas» — kaķu un suņu adopcija, brīvprātīgais darbs, palīdzība patversmei.">
+  <meta charset="UTF-8"> <!-- UTF-8 encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Patversme bezpajumtes dzīvniekiem «Siltās Ķepas» — kaķu un suņu adopcija, brīvprātīgais darbs, palīdzība patversmei.">
 
-<title>Patversme «Siltās Ķepas» — māja tiem, kas gaida</title>
+  <title>Patversme «Siltās Ķepas» — māja tiem, kas gaida</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 
-
-<style>
-  .animal-card img,
-  .about-media img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 12px 12px 0 0;
-  }
-  .about-media img {
-    height: auto;
-    max-height: 500px;
-    border-radius: 12px;
-  }
-</style>
 </head>
 
 <body>
@@ -85,9 +69,6 @@
 
       <div class="hero-figure" aria-hidden="true">
         <div class="hero-blob"></div>
-        <span class="hero-emoji hero-emoji--1">🐶</span>
-        <span class="hero-emoji hero-emoji--2">🐱</span>
-        <span class="hero-emoji hero-emoji--3">🐾</span>
       </div>
     </div>
   </section>
@@ -118,8 +99,8 @@
   <section id="about" class="section about">
     <div class="wrap about-grid">
       <div class="about-media">
-        <!-- Attēls no interneta/lokālās mapes ar pareizām proporcijām -->
-        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80" alt="Patversmes brīvprātīgie ar dzīvniekiem" width="900" height="650" loading="lazy">
+        <!-- Attēls no vietējās mapes / interneta (Local / Relative URL) -->
+        <img src="images/shelter-team.jpg" alt="Patversmes brīvprātīgie ar dzīvniekiem" width="900" height="650" loading="lazy">
         <p class="media-caption"><small>Foto: patversmes komanda, 2025.&nbsp;gada vasara.</small></p>
       </div>
 
@@ -131,7 +112,6 @@
           «Siltās Ķepas» ir privāta patversme bezpajumtes dzīvniekiem,
           kas pastāv pilnībā no ziedojumiem un brīvprātīgo darba.
           Mēs neeitanizējam veselus dzīvniekus un turam tos pie sevis <em>tik ilgi,
-          <!-- Teksta formēšana (<em>) -->
           cik nepieciešams</em>, kamēr atrodas piemērota ģimene.
         </p>
 
@@ -190,11 +170,13 @@
         <button class="filter-btn" data-filter="other" type="button">Citi</button>
       </div>
 
+      <!-- DZĪVNIEKI -->
+
       <div class="animal-grid" id="animalGrid">
 
-        <!-- Dzīvnieks 1 -->
+        
         <article class="animal-card" data-species="dog">
-          <!-- Attēls kā hipersaite (Image hyperlink) + Image from web -->
+          <!-- Attēls kā hipersaite + Image from web -->
           <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDCxYTAY4BvahVuTl-jMe_kp3rUP1lyVH-4lKbGvzP3A&s=10" target="_blank" rel="noopener noreferrer" class="animal-photo-link">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDCxYTAY4BvahVuTl-jMe_kp3rUP1lyVH-4lKbGvzP3A&s=10" alt="Suns Toms, aitu suņa metis, 2 gadi" loading="lazy">
           </a>
@@ -209,7 +191,7 @@
           </div>
         </article>
 
-        <!-- Dzīvnieks 2 -->
+
         <article class="animal-card" data-species="cat">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaRCEpPIsezf8jguOlC0RscKN8Elspjz3Vpm-KbUI-ig&s" alt="Kaķe Marta, trīskrāsaina, 1 gads" loading="lazy">
           <div class="animal-body">
@@ -222,7 +204,7 @@
           </div>
         </article>
 
-        <!-- Dzīvnieks 3 -->
+
         <article class="animal-card" data-species="dog">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeoKjeXVemG2E5JTZ8lCbMHzjPjf-m4NEZ3nV1q6yK5Q&s=10" alt="Suns Grafs, labradors, 4 gadi" loading="lazy">
           <div class="animal-body">
@@ -235,7 +217,7 @@
           </div>
         </article>
 
-        <!-- Dzīvnieks 4 -->
+
         <article class="animal-card" data-species="other">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT61pfSFxyf0jTzIqDqtnwGspJ0N7Iz2mglRt-HsjHXrg&s=10" alt="Viļņainais papagailis Kiksis" loading="lazy">
           <div class="animal-body">
@@ -248,7 +230,7 @@
           </div>
         </article>
 
-        <!-- Dzīvnieks 5 -->
+
         <article class="animal-card" data-species="cat">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS78SdlxW0wofFiZtir2115FykPY2_bnsmFw34ZxUNyAQ&s=10" alt="Kaķe Luna, melna, 3 gadi" loading="lazy">
           <div class="animal-body">
@@ -261,7 +243,7 @@
           </div>
         </article>
 
-        <!-- Dzīvnieks 6 -->
+
         <article class="animal-card" data-species="dog">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWCbr6ylhgMlxRVrFYN8mPOt8esCbhKTgMHnCqXv0Bw&s=10" alt="Kucēns Ričs, dvorņaga, 5 mēneši" loading="lazy">
           <div class="animal-body">
@@ -284,7 +266,6 @@
   </section>
 
   <!-- ===================== VIDEO ===================== -->
-  <!-- Iegultais YouTube video (<iframe>) -->
   <section class="section video-section">
     <div class="wrap">
       <h2>Viena diena patversmē</h2>
@@ -505,8 +486,7 @@
           <a href="https://en.wikipedia.org/wiki/Animal_shelter" target="_blank" rel="noopener noreferrer">Wikipedia par patversmju uzbūvi</a>.
         </p>
       </div>
-
-      
+    </div>
   </section>
 
 </main>
@@ -527,7 +507,7 @@
     </div>
 
     <div class="footer-back">
-      <button class = "btn-top" onclick="window.scrollTo(0, 0)">
+      <button class="btn-top" onclick="window.scrollTo(0, 0)">
         Atgriezties augšā
       </button>
     </div>
